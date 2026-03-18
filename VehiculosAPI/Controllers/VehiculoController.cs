@@ -1,6 +1,7 @@
 ﻿using System.Net.WebSockets;
 using Microsoft.AspNetCore.Mvc;
 using VehiculosAPI.Entities;
+using VehiculosAPI.Entities.Catalogos;
 using VehiculosAPI.Services;
 
 namespace VehiculosAPI.Controllers
@@ -22,15 +23,30 @@ namespace VehiculosAPI.Controllers
             var vehiculos = await vehiculoSercvice.GetAllVehiculosAsync();
 
 
-            if (vehiculos.Count == 0){
+            if (vehiculos.Count == 0)
+            {
 
                 return NoContent();
             }
             else
             {
-				return Ok(vehiculos);
-			}
-		}
-       
+                return Ok(vehiculos);
+            }
+        }
+
+        [HttpPost("nuevamarca")]
+        public async Task<ActionResult<CatMarca>> SetMarca([FromBody] CatMarca marca)
+        {
+            var nuevaMarca = await vehiculoSercvice.SetMarcaAsync(marca);
+            if (nuevaMarca == null)
+            {
+                return BadRequest("No se pudo guardar la marca");
+            }
+            else
+            {
+                return Ok(nuevaMarca);
+            }
+
+        }
     }
 }

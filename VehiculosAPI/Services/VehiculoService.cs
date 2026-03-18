@@ -1,10 +1,18 @@
-﻿using VehiculosAPI.Entities;
+﻿using VehiculosAPI.Data;
+using VehiculosAPI.Entities;
+using VehiculosAPI.Entities.Catalogos;
 
 namespace VehiculosAPI.Services
 {
     public class VehiculoService : IVehiculoService
     {
-        public async Task<List<Vehiculo>> GetAllVehiculosAsync()
+		private readonly ApplicationDbContext dbContext;
+
+		public VehiculoService(ApplicationDbContext dbContext)
+		{
+			this.dbContext = dbContext;
+		}
+		public async Task<List<Vehiculo>> GetAllVehiculosAsync()
         {
             List<Vehiculo> vehiculos = new List<Vehiculo>
             {
@@ -15,5 +23,13 @@ namespace VehiculosAPI.Services
 
             return vehiculos;
 		}
-    }
+
+		public async Task<CatMarca> SetMarcaAsync(CatMarca marca)
+		{
+			await dbContext.CatMarcas.AddAsync(marca);
+			var nuevaMarcaGuardada = await dbContext.SaveChangesAsync();
+			return nuevaMarcaGuardada > 0 ? marca : null;
+
+		}
+	}
 }
