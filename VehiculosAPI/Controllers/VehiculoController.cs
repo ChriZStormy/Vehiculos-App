@@ -48,5 +48,63 @@ namespace VehiculosAPI.Controllers
             }
 
         }
+
+        [HttpPost("nuevovehiculo")]
+        public async Task<ActionResult<Vehiculo>> SetVehiculo([FromBody] Vehiculo vehiculo)
+        {
+            var nuevoVehiculo = await vehiculoSercvice.SetVehiculoAsync(vehiculo);
+            if (nuevoVehiculo == null)
+            {
+                return BadRequest("No se pudo guardar el vehiculo");
+            }
+            else
+            {
+                return Ok(nuevoVehiculo);
+            }
+        }
+
+        [HttpGet("todosvehiculos")]
+        public async Task<ActionResult<List<Vehiculo>>> GetAllVehiculosFromDB()
+        {
+            var vehiculos = await vehiculoSercvice.GetAllVehiculoFromDBAsync();
+            if (vehiculos.Count == 0)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(vehiculos);
+            }
+        }
+
+        [HttpDelete("eliminarvehiculo")]
+        public async Task<ActionResult<bool>> DeleteVehiculo([FromBody] Vehiculo vehiculo)
+        {
+            var vehiculoEliminado = await vehiculoSercvice.deleteVehiculoAsync(vehiculo);
+            if (!vehiculoEliminado)
+            {
+                return BadRequest("No se pudo eliminar el vehiculo. ");
+            }
+            else
+            {
+                return Ok("Vehiculo Eliminado Existosamente");
+            }
+        }
+
+
+        [HttpPut("actualizarvehiculo")]
+        public async Task<ActionResult<Vehiculo>> UpdateVehiculo([FromBody] Vehiculo vehiculo)
+        {
+            var vehiculoActualizado = await vehiculoSercvice.updateVehiculoAsync(vehiculo);
+            if (vehiculoActualizado == null)
+            {
+                return BadRequest("No se pudo actualizar el vehiculo");
+            }
+            else
+            {
+                return Ok(vehiculoActualizado);
+            }
+
+        }
     }
 }
