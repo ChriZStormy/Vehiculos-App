@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VehiculosMaui.Views.DetalleVehiculoPage"
+             Title="Detalle del Vehículo">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="30" Spacing="20">
+
+			<Frame BorderColor="LightGray" CornerRadius="8" Padding="20" HasShadow="False">
+				<VerticalStackLayout Spacing="15">
+
+					<Label Text="Placas: ABC123" FontSize="18" TextColor="#333333" />
+					<Label Text="Marca: Nissan" FontSize="18" TextColor="#333333" />
+					<Label Text="Modelo: Sentra" FontSize="18" TextColor="#333333" />
+					<Label Text="Año: 2020" FontSize="18" TextColor="#333333" />
+
+				</VerticalStackLayout>
+			</Frame>
+
+			<Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,20,0,0">
+
+				<Button Grid.Column="0" 
+                        Text="Historial" 
+                        HeightRequest="50"
+                        BackgroundColor="#6c757d" 
+                        TextColor="White"
+                        CornerRadius="8"
+                        FontAttributes="Bold" />
+
+				<Button Grid.Column="1" 
+                        Text="Agregar Mantto" 
+                        HeightRequest="50"
+                        BackgroundColor="#2196F3" 
+                        TextColor="White"
+                        CornerRadius="8"
+                        FontAttributes="Bold" />
+
+			</Grid>
+
+		</VerticalStackLayout>
+	</ScrollView>
+
+</ContentPage>

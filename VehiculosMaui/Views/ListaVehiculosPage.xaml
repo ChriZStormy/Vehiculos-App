@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VehiculosMaui.Views.ListaVehiculosPage"
+             Title="Lista de Vehículos">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="15">
+
+			<SearchBar Placeholder="Buscar..." 
+                       CancelButtonColor="Red" />
+
+			<Border StrokeShape="RoundRectangle 8" 
+                    Stroke="#CCCCCC" 
+                    BackgroundColor="White" 
+                    Padding="15">
+				<Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+					<Label Grid.Column="0" 
+                           Text="ABC123 - Nissan Sentra" 
+                           VerticalOptions="Center" 
+                           FontSize="16" 
+                           TextColor="#333333" />
+
+					<Button Grid.Column="1" 
+                            Text="Ver Detalle" 
+                            HeightRequest="35" 
+                            Padding="10,0" 
+                            BackgroundColor="#2196F3" 
+                            TextColor="White"
+                            CornerRadius="5" />
+				</Grid>
+			</Border>
+
+			<Border StrokeShape="RoundRectangle 8" 
+                    Stroke="#CCCCCC" 
+                    BackgroundColor="White" 
+                    Padding="15">
+				<Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+					<Label Grid.Column="0" 
+                           Text="XY2456 - Ford F-150 2018" 
+                           VerticalOptions="Center" 
+                           FontSize="16" 
+                           TextColor="#333333" />
+
+					<Button Grid.Column="1" 
+                            Text="Ver Detalle" 
+                            HeightRequest="35" 
+                            Padding="10,0" 
+                            BackgroundColor="#2196F3" 
+                            TextColor="White"
+                            CornerRadius="5"/>
+				</Grid>
+			</Border>
+
+		</VerticalStackLayout>
+	</ScrollView>
+
+</ContentPage>
