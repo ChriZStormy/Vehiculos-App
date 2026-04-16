@@ -9,5 +9,9 @@ namespace VehiculosMaui.Views
 		{
 			InitializeComponent();
 		}
+		private async void OnVehiculosClicked(object sender, EventArgs e)
+		{
+			await Shell.Current.GoToAsync(nameof(RegistrarVehiculoPage));
+		}
 	}
 }

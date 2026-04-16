@@ -11,7 +11,8 @@
                 FontSize="18"
                 CornerRadius="8"
                 BackgroundColor="#2196F3"
-                TextColor="White"/>
+                TextColor="White"
+                Clicked="OnVehiculosClicked" />
 
 		<Button Text="Mantenimientos" 
                 HeightRequest="60" 
