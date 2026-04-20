@@ -45,6 +45,19 @@ namespace VehiculosMaui.Services
 			}
 		}
 
+		public async Task<List<CatMarca>> GetMarcasAsync()
+		{
+			try
+			{
+				return await _httpClient.GetFromJsonAsync<List<CatMarca>>($"{_baseUrl}/todasmarcas");
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error al obtener marcas: {ex.Message}");
+				return new List<CatMarca>();
+			}
+		}
+
 		public async Task<bool> ActualizarVehiculoAsync(Vehiculo vehiculo)
 		{
 			try

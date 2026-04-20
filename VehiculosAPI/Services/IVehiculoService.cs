@@ -10,6 +10,7 @@ namespace VehiculosAPI.Services
         Task<List<CatMarca>> SetVariasMarcasAsync(List<CatMarca> marcas);
 
         Task<List<Vehiculo>> GetAllVehiculoFromDBAsync();
+        Task<List<CatMarca>> GetAllMarcasFromDBAsync();
 
         Task<bool> deleteVehiculoAsync(int id);
         Task<Vehiculo> updateVehiculoAsync(Vehiculo vehiculo);

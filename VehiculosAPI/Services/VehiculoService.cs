@@ -30,6 +30,11 @@ namespace VehiculosAPI.Services
 
 		}
 
+		public async Task<List<CatMarca>> GetAllMarcasFromDBAsync()
+		{
+			return await dbContext.CatMarcas.ToListAsync();
+		}
+
 		public async Task<List<Vehiculo>> GetAllVehiculosAsync()
         {
             List<Vehiculo> vehiculos = new List<Vehiculo>

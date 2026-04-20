@@ -77,6 +77,20 @@ namespace VehiculosAPI.Controllers
             }
         }
 
+        [HttpGet("todasmarcas")]
+        public async Task<ActionResult<List<CatMarca>>> GetAllMarcasFromDB()
+        {
+            var marcas = await vehiculoSercvice.GetAllMarcasFromDBAsync();
+            if (marcas.Count == 0)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(marcas);
+            }
+        }
+
         [HttpDelete("eliminarvehiculo/{id}")]
         public async Task<ActionResult<bool>> DeleteVehiculo(int id)
         {

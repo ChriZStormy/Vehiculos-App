@@ -37,7 +37,8 @@
                 CornerRadius="30"
                 BackgroundColor="White"
                 TextColor="#0D47A1"
-                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"/>
+                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"
+                Clicked="OnMantenimientosClicked"/>
 
 		<Button Text="Reportes de Fallas" 
                 HeightRequest="60" 
@@ -46,7 +47,8 @@
                 CornerRadius="30"
                 BackgroundColor="White"
                 TextColor="#0D47A1"
-                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"/>
+                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"
+                Clicked="OnReportesClicked"/>
 
 		<Button Text="Catálogos" 
                 HeightRequest="60" 
@@ -55,7 +57,8 @@
                 CornerRadius="30"
                 BackgroundColor="White"
                 TextColor="#0D47A1"
-                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"/>
+                Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2, Radius=5}"
+                Clicked="OnCatalogosClicked"/>
 
 	</VerticalStackLayout>
 
