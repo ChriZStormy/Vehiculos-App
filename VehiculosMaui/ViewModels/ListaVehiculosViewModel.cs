@@ -21,6 +21,7 @@ namespace VehiculosMaui.ViewModels
 
         public ICommand CargarVehiculosCommand { get; }
         public ICommand VerDetalleCommand { get; }
+        public ICommand RegistrarNuevoCommand { get; }
 
         public ListaVehiculosViewModel()
         {
@@ -29,6 +30,7 @@ namespace VehiculosMaui.ViewModels
             
             CargarVehiculosCommand = new Command(async () => await CargarVehiculos());
             VerDetalleCommand = new Command<Vehiculo>(async (v) => await VerDetalle(v));
+            RegistrarNuevoCommand = new Command(async () => await RegistrarNuevo());
         }
 
         public async Task CargarVehiculos()
@@ -39,6 +41,11 @@ namespace VehiculosMaui.ViewModels
             {
                 Vehiculos.Add(v);
             }
+        }
+
+        private async Task RegistrarNuevo()
+        {
+            await Shell.Current.GoToAsync(nameof(RegistrarVehiculoPage));
         }
 
         private async Task VerDetalle(Vehiculo vehiculo)
@@ -52,7 +59,7 @@ namespace VehiculosMaui.ViewModels
             await Shell.Current.GoToAsync(nameof(DetalleVehiculoPage), navigationParameter);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

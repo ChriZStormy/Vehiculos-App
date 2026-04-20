@@ -7,8 +7,10 @@ namespace VehiculosMaui.Services
 	{
 		private readonly HttpClient _httpClient;
 
-		// URL base de tu API (Ajusta el puerto si es distinto. 10.0.2.2 es para el emulador Android)
-		private readonly string _baseUrl = "http://10.0.2.2:5000/api/vehiculo";
+		// URL base de la API adaptada según plataforma. localhost en Windows y 10.0.2.2 en Emulador Android.
+		private readonly string _baseUrl = DeviceInfo.Platform == DevicePlatform.Android 
+            ? "http://10.0.2.2:5105/api/vehiculo" 
+            : "http://localhost:5105/api/vehiculo";
 
 		public VehiculoApiService()
 		{

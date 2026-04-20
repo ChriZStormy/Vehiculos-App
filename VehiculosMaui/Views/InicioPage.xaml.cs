@@ -1,4 +1,4 @@
-﻿
+
 using Microsoft.Maui.Controls;
 
 namespace VehiculosMaui.Views
@@ -11,7 +11,7 @@ namespace VehiculosMaui.Views
 		}
 		private async void OnVehiculosClicked(object sender, EventArgs e)
 		{
-			await Shell.Current.GoToAsync(nameof(RegistrarVehiculoPage));
+			await Shell.Current.GoToAsync(nameof(ListaVehiculosPage));
 		}
 	}
 }
