@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using VehiculosAPI.Data;
 using VehiculosAPI.Entities;
@@ -15,9 +15,10 @@ namespace VehiculosAPI.Services
 			this.dbContext = dbContext;
 		}
 
-		public async Task<bool> deleteVehiculoAsync(Vehiculo vehiculo)
+		public async Task<bool> deleteVehiculoAsync(int id)
 		{
-			var vehiculoExistente = await dbContext.Vehiculos.FindAsync(vehiculo.Id);
+			var vehiculoExistente = await dbContext.Vehiculos.FindAsync(id);
+			if (vehiculoExistente == null) return false;
 			dbContext.Remove(vehiculoExistente);
 			var vehiculoEliminado = await dbContext.SaveChangesAsync();
 			return vehiculoEliminado > 0;
@@ -68,11 +69,17 @@ namespace VehiculosAPI.Services
 
 		public async Task<Vehiculo> updateVehiculoAsync(Vehiculo vehiculo)
 		{
-			var vehiculoExsitente = await dbContext.Vehiculos.FindAsync(vehiculo.Id);
-			vehiculoExsitente.Modelo = "Vehiculo Editado";
-			dbContext.Vehiculos.Update(vehiculoExsitente);
+			var vehiculoExistente = await dbContext.Vehiculos.FindAsync(vehiculo.Id);
+			if (vehiculoExistente == null) return null;
+			
+			vehiculoExistente.Modelo = vehiculo.Modelo;
+			vehiculoExistente.Year = vehiculo.Year;
+			vehiculoExistente.Placas = vehiculo.Placas;
+			vehiculoExistente.MarcaId = vehiculo.MarcaId;
+			
+			dbContext.Vehiculos.Update(vehiculoExistente);
 			var vehiculoEditado = await dbContext.SaveChangesAsync();
-			return vehiculoEditado > 0 ? vehiculoExsitente : null;
+			return vehiculoEditado > 0 ? vehiculoExistente : null;
 		}
 	}
 }

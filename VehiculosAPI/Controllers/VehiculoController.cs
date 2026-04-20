@@ -1,4 +1,4 @@
-﻿using System.Net.WebSockets;
+using System.Net.WebSockets;
 using Microsoft.AspNetCore.Mvc;
 using VehiculosAPI.Entities;
 using VehiculosAPI.Entities.Catalogos;
@@ -77,10 +77,10 @@ namespace VehiculosAPI.Controllers
             }
         }
 
-        [HttpDelete("eliminarvehiculo")]
-        public async Task<ActionResult<bool>> DeleteVehiculo([FromBody] Vehiculo vehiculo)
+        [HttpDelete("eliminarvehiculo/{id}")]
+        public async Task<ActionResult<bool>> DeleteVehiculo(int id)
         {
-            var vehiculoEliminado = await vehiculoSercvice.deleteVehiculoAsync(vehiculo);
+            var vehiculoEliminado = await vehiculoSercvice.deleteVehiculoAsync(id);
             if (!vehiculoEliminado)
             {
                 return BadRequest("No se pudo eliminar el vehiculo. ");

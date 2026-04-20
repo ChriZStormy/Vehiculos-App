@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:VehiculosMaui.ViewModels"
+             x:Class="VehiculosMaui.Views.EditarVehiculoPage"
+             Title="Editar Vehículo">
+
+	<ContentPage.BindingContext>
+		<viewmodels:EditarVehiculoViewModel />
+	</ContentPage.BindingContext>
+
+	<ScrollView>
+		<VerticalStackLayout Padding="30" Spacing="20">
+
+			<Entry Placeholder="Modelo (ej. Corolla)" 
+                   Text="{Binding Modelo}" />
+
+			<Entry Placeholder="Año (ej. 2024)" 
+                   Text="{Binding Year}" 
+                   Keyboard="Numeric" />
+			<Entry Placeholder="Placas" 
+                   Text="{Binding Placas}" />
+
+			<Entry Placeholder="ID de la Marca" 
+                   Text="{Binding MarcaId}" 
+                   Keyboard="Numeric" />
+
+			<Button Text="Actualizar Vehículo" 
+                    Command="{Binding GuardarCommand}"
+                    HeightRequest="50"
+                    CornerRadius="8"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    Margin="0,20,0,0"/>
+
+		</VerticalStackLayout>
+	</ScrollView>
+
+</ContentPage>

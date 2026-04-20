@@ -1,4 +1,4 @@
-﻿using VehiculosMaui.Views;
+using VehiculosMaui.Views;
 
 namespace VehiculosMaui
 {
@@ -8,6 +8,9 @@ namespace VehiculosMaui
         {
             InitializeComponent();
 			Routing.RegisterRoute(nameof(RegistrarVehiculoPage), typeof(RegistrarVehiculoPage));
+			Routing.RegisterRoute(nameof(ListaVehiculosPage), typeof(ListaVehiculosPage));
+			Routing.RegisterRoute(nameof(DetalleVehiculoPage), typeof(DetalleVehiculoPage));
+			Routing.RegisterRoute(nameof(EditarVehiculoPage), typeof(EditarVehiculoPage));
 		}
     }
 }

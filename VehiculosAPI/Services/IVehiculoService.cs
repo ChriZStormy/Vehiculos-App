@@ -1,4 +1,4 @@
-﻿using VehiculosAPI.Entities;
+using VehiculosAPI.Entities;
 using VehiculosAPI.Entities.Catalogos;
 
 namespace VehiculosAPI.Services
@@ -11,7 +11,7 @@ namespace VehiculosAPI.Services
 
         Task<List<Vehiculo>> GetAllVehiculoFromDBAsync();
 
-        Task<bool> deleteVehiculoAsync(Vehiculo vehiculo);
+        Task<bool> deleteVehiculoAsync(int id);
         Task<Vehiculo> updateVehiculoAsync(Vehiculo vehiculo);
         Task<Vehiculo> SetVehiculoAsync(Vehiculo vehiculo);
 	}
